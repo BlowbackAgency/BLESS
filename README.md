@@ -21,7 +21,6 @@ Collection of usefull LESS mixins.
 * `.transition-delay();`
 * `.opacity();`
 * `.user-select();`
-* `.selection();`
 
 ## CSS helpers
 * `.font-size();` px/rem font size (integer)
