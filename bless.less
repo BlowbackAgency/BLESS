@@ -176,6 +176,13 @@
 .rounded-bottom-right(@radius) { .border-bottom-right-radius(@radius); }
 .rounded-bottom-left(@radius) { .border-bottom-left-radius(@radius); }
 
+// font-size
+.font-size(@font-size:16){
+  @rem: (@font-size / 10);
+  font-size: @font-size * 1px;
+  font-size: ~"@{rem}rem";
+}
+
 // size
 .size(@width:false, @height:false) when not (@width=false) and (@height=false) {
   width: @width;

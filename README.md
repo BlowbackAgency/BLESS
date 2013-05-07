@@ -24,10 +24,11 @@ Collection of usefull LESS mixins.
 * `.selection();`
 
 ## CSS helpers
-* `.size();`
-* `.min-size();`
-* `.max-size();`
-* `.spacing();`
+* `.font-size();` px/rem font size (integer)
+* `.size();` width/height
+* `.min-size();` min width/height
+* `.max-size();` max width/height
+* `.spacing();` margin/padding
 
 ## PSD layer styles
 * `.drop-shadow();`
