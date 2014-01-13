@@ -1,0 +1,72 @@
+/**
+ * Example Item Defaults
+ *
+ */
+.item {
+	text-align: center;
+	font: normal bold 16px/64px sans-serif;
+	color: #fff;
+	background: #f60 url('http://mirrors.creativecommons.org/presskit/icons/cc.png') 0% 50% no-repeat;
+	border: 4px solid #f60;
+	width: 128px;
+	height: 64px;
+	padding-left: 64px;
+	&:hover {
+		font-size: 17px;
+		color: #fff;
+		border-color: #000;
+		background-color: #222;
+	}
+}
+
+/**
+ * Mixin Examples
+ *
+ */
+.item {
+
+	// CSS Properties
+	.mixin.background-clip & { .background-clip(content-box); };
+	.mixin.background-size & { .background-size(128px 32px); };
+	.mixin.border-radius & { .border-radius(32px 0 0 32px); };
+	.mixin.box-shadow & { .box-shadow(1px 1px 6px #333); };
+	.mixin.box-sizing & { .box-sizing(border-box); };
+	.mixin.column-count & { .column-count(6); };
+	.mixin.column-gap & { .column-gap(32px); };
+	.mixin.opacity & { .opacity(0.5, true); };
+	.mixin.transform & { .transform(rotate(70deg) translate(64px)); };
+	.mixin.transform-origin & { .transform-origin(left bottom); };
+	.mixin.transform-style & { .transform-style(preserve-3d); };
+	.mixin.transition & { .transition(all 2s); };
+	.mixin.transition-delay & { .transition-delay(0.5s); };
+	.mixin.transition-duration & { .transition-duration(0.5s); };
+	.mixin.transition-property & { .transition-property(width height); };
+	.mixin.transition-timing-function & { .transition-timing-function(ease-out); };
+	.mixin.user-select & { .user-select(none); };
+
+	// Transform Functions
+	.mixin.rotate & { .rotate(35); };
+	.mixin.scale & { .scale(1.5); };
+	.mixin.skew & { .skew(35); };
+	.mixin.translate & { .translate(-128px, -32px); };
+	.mixin.translate3d & { .translate3d(-128px, -32px,  32px); };
+
+	// CSS Helpers
+	.mixin.columns & { .columns(4, 20px); };
+	.mixin.font-size & { .font-size(24); };
+	.mixin.rounded & { .rounded(64px); };
+	.mixin.size & { .size(256px, 128px); };
+	.mixin.spacing & { .spacing(10px); };
+
+	// PSD Layer Style
+	.mixin.drop-shadow & { .drop-shadow(1px 1px 6px #000 0.6); };
+	.mixin.inner-shadow & { .inner-shadow(0 3px 9px #fff 0.9); };
+	.mixin.stroke & {  };
+
+	// CSS Colors
+	.mixin.background-color & { .background-color(purple, 0.6); };
+	.mixin.border-color & { .border-color(red green blue, 0.6); };
+	.mixin.color & { .color(blue, 0.8); };
+	.mixin.linear-gradient & { .linear-gradient-left(red orange yellow green blue, 0% 25% 50% 75% 100%); };
+
+}

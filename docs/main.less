@@ -1,0 +1,217 @@
+@import "../bless";
+@import "demo";
+
+
+/**
+ * Docs Page
+ *
+ */
+
+html { font-size: 16px; }
+
+a {
+	color: darken(spin(#f60, 180), 10%);
+	&:hover { color: spin(#f60, 180); }
+}
+
+#top, #main, #menu {
+	.transition-property(width height margin padding);
+	.transition-timing-function(ease-out);
+	.transition-duration(0.2s);
+}
+
+#top, #main {
+	border-left: 1px solid #ccc;
+	margin-left: 240px;
+	padding: 1em 2em;
+}
+
+#main {
+	position: relative;
+	padding-top: 0.3em;
+	padding-bottom: 1.5em;
+	
+	.group {
+		border-bottom: 1px solid #ccc;
+	}
+	
+	.mixin {
+		border-top: 1px solid #ccc;
+		padding-bottom: 1em;
+	}
+}
+
+#menu {
+	position: fixed;
+	width: 198px;
+	margin: 21px;
+	left: 0;
+	top: 0;
+	font-size: 0.91em;
+	ul { list-style: none; padding: 0; }
+	li { position: relative; }
+	a { text-decoration: none; }
+}
+
+#dropdown {
+	width: 100%;
+	.no-js & { display: none; }
+}
+
+#menu ul.top {
+	color: #666;
+	li { display: inline; }
+	li:before { content: "\007C\0020"; }
+	li:first-child:before { content: ""; }
+}
+
+#menu ul.mixins {
+	border-bottom: 1px solid #ccc;
+	> li {
+		border-top: 1px solid #ccc;
+		padding: 6px 4px;
+		ul { padding: 1px 2px 3px; }
+	}
+}
+
+#menu ul.mixins {
+	i {
+		position: absolute;
+		display: block;
+		width: 18px;
+		height: 1em;
+		top: 0;
+		right: 0;
+		line-height:1;
+		padding: 6px 0;
+		cursor: pointer;
+		color: #666;
+		font-style: normal;
+		font-weight: normal;
+		text-align: center;
+		&:before { content:"\002D"; }
+		.no-js & { display: none; }
+	}
+	.collapsed i:before { content:"\002B"; }
+}
+
+#top {
+	.menu, .github {
+		position: fixed;
+		z-index: 99999;
+		right: 0;
+		top: 0;
+	}
+	.menu {
+		display: none;
+		text-decoration: none;
+		text-transform: uppercase;
+		padding: 0.4em 0.5em;
+		.background-color(#fff, 0.8);
+		.drop-shadow();
+	}
+}
+
+
+// main mixin examples
+.mixin {
+	
+	h3, .variations {
+		position: relative;
+		&:before {
+			content: "MIXIN";
+			color: #aaa;
+			font-size: 11px;
+			font-weight: normal;
+			position: absolute;
+			top: -11px;
+			left: 4px;
+		}
+	}
+	
+	h3 { .spacing(1.6em 0 1.4em, 0); }
+	
+	.variations {
+		ul { list-style: none; padding-left: 0; }
+		&:before {
+			content: "VARIATIONS";
+			color: #bbb;
+			top: -13px;
+		}
+	}
+	
+	code {
+		em { font-style: normal; color: darken(#f60, 15%); }
+	}
+
+	.example {
+		font-size: 14px;
+		border: 1px solid #eee;
+		padding: 0 10px;
+		margin-bottom: 0.5em;
+		h4 {
+			text-align: right;
+			font-weight: normal;
+			position: relative;
+			background: #f3f3f3;
+			color: #999;
+			padding: 3px;
+			margin: 0 -10px;
+			code {
+				color: #333;
+			}
+			&:before {
+				content: "EXAMPLE";
+				font-size: 11px;
+				position: absolute;
+				left: 3px; top: 5px;
+			}
+		}
+		&.active h4 {
+			cursor: pointer;
+			&:hover {
+				background: #eee;
+			}
+		}
+		.item {
+			margin: 10px auto;
+			.js & { display: none; }
+		}
+	}
+	
+}
+
+@media screen and (max-width: 52em) {
+	body {
+		padding: 0 2em;
+	}
+	#top {
+		.github { display: none; }
+		.menu { display: block; }
+	}
+	#top, #main {
+		border: 0;
+		margin: 0 0 1em 0;
+		padding-left: 0;
+		padding-right: 0;
+	}
+	#main {
+		margin-top: -0.8em;
+		padding-top: 0;
+		padding-bottom: 0.6em;
+	}
+	#menu {
+		border-top: 3px solid #222;
+		position: static;
+		width: auto;
+		margin: 0;
+		padding: 0.2em 0 1em;
+		font-size: 1.125em;
+		.example { display: none; }
+		ul.mixins {
+			line-height: 1.6;
+			padding-top: 0.5em;
+			i { top: 0.2em; }
+		}
+	}
+}

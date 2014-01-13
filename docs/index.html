@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>BLESS Mixins | LESS CSS</title>
+   <meta name="description" content="Collection of usefull LESS mixins including CSS properties with vendor prefixes." />
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="../vendor/normalize.css" />
+	<link rel="stylesheet/less" href="main.less" />
+	<script src="../vendor/modernizr-2.7.0.min.js"></script>
+	<script src="../vendor/less-1.5.0.min.js"></script>
+</head>
+<body>
+	
+	<header id="top" role="banner">
+		<h1>BLESS LESS Mixins</h1>
+		<a class="github" href="https://github.com/BlowbackDesign/BLESS">
+			<img src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
+		</a>
+		<a class="menu" href="#menu">Menu &darr;</a>
+	</header>
+	
+	<section id="main" role="main">
+		
+		<article class="content" id="content">
+			
+		</article>
+		
+		<article class="group" id="css-properties">
+
+			<h2>CSS Properties</h2>
+
+			<section class="mixin background-clip" id="background-clip">
+				<h3><code>.background-clip(<em>@clip</em>)</code></h3>
+				<div class="info">
+					<p><a href="http://www.w3.org/TR/css3-background/#the-background-clip" target="_blank">http://www.w3.org/TR/css3-background/#the-background-clip</a></p>
+				</div>
+				<div class="example">
+					<h4><code>.background-clip(<em>content-box</em>);</code></h4>
+					<div class="item">BLESS me!</div>
+				</div>
+			</section> <!-- // background-clip -->
+
+			<section class="mixin background-size" id="background-size">
+				<h3><code>.background-size(<em>@size</em>)</code></h3>
+				<div class="info">
+					<p><a href="http://www.w3.org/TR/css3-background/#the-background-size" target="_blank">http://www.w3.org/TR/css3-background/#the-background-size</a></p>
+				</div>
+				<div class="example">
+					<h4><code>.background-size(<em>128px 32px</em>);</code></h4>
+					<div class="item">BLESS me!</div>
+				</div>
+			</section> <!-- // background-size -->
+
+			<section class="mixin border-radius" id="border-radius">
+				<h3><code>.border-radius(<em>@radius</em>)</code></h3>
+				<div class="variations">
+					<ul>
+						<li><code>.border-top-left-radius(<em>@radius</em>)</code></li>
+						<li><code>.border-top-right-radius(<em>@radius</em>)</code></li>
+						<li><code>.border-bottom-right-radius(<em>@radius</em>)</code></li>
+						<li><code>.border-bottom-left-radius(<em>@radius</em>)</code></li>
+					</ul>
+				</div>
+				<div class="info">
+					<p><a href="http://www.w3.org/TR/css3-background/#the-border-radius" target="_blank">http://www.w3.org/TR/css3-background/#the-border-radius</a></p>
+				</div>
+				<div class="example">
+					<h4><code>.border-radius(<em>32px 0 0 32px</em>);</code></h4>
+					<div class="item">BLESS me!</div>
+				</div>
+			</section> <!-- // border-radius -->
+
+			<section class="mixin box-shadow" id="box-shadow">
+				<h3><code>.box-shadow(<em>@shadow</em>)</code></h3>
+				<div class="variations">
+					<ul>
+						<li><code>.box-shadow(<em>&quot;@shadow[, @shadow]...&quot;</em>)</code></li>
+					</ul>
+				</div>
+				<div class="info">
+					<p><a href="http://www.w3.org/TR/css3-background/#box-shadow" target="_blank">http://www.w3.org/TR/css3-background/#box-shadow</a></p>
+				</div>
+				<div class="example">
+					<h4><code>.box-shadow(<em>1px 1px 6px #333</em>);</code></h4>
+					<div class="item">BLESS me!</div>
+				</div>
+			</section> <!-- // box-shadow -->
+
+			<section class="mixin box-sizing" id="box-sizing">
+				<h3><code>.box-sizing(<em>@size</em>)</code></h3>
+				<div class="info">
+					<p><a href="http://www.w3.org/TR/2002/WD-css3-box-20021024/#box-sizing" target="_blank">http://www.w3.org/TR/2002/WD-css3-box-20021024/#box-sizing</a></p>
+				</div>
+				<div class="example">
+					<h4><code>.box-sizing(<em>border-box</em>);</code></h4>
+					<div class="item">BLESS me!</div>
+				</div>
+			</section> <!-- // box-sizing -->
+
+			<section class="mixin column-count" id="column-count">
+				<h3><code>.column-count(<em>@count</em>)</code></h3>
+				<div class="info">
+					<p><a href="http://www.w3.org/TR/css3-multicol/#column-count" target="_blank">http://www.w3.org/TR/css3-multicol/#column-count</a></p>
+				</div>
+				<div class="example">
+					<h4><code>.column-count(<em>6</em>);</code></h4>
+				</div>
+			</section> <!-- // column-count -->
+
+			<section class="mixin column-gap" id="column-gap">
+				<h3><code>.column-gap(<em>@gap</em>)</code></h3>
+				<div class="info">
+					<p><a href="http://www.w3.org/TR/css3-multicol/#column-gap" target="_blank">http://www.w3.org/TR/css3-multicol/#column-gap</a></p>
+				</div>
+				<div class="example">
+					<h4><code>.column-gap(<em>32px</em>);</code></h4>
+				</div>
+			</section> <!-- // column-gap -->
+
+			<section class="mixin opacity" id="opacity">
+				<h3><code>.opacity(<em>@opacity[, @ie]</em>)</code></h3>
+				<div class="variations">
+					<ul>
+						<li><code>.ie-opacity(<em>@opacity</em>)</code></li>
+					</ul>
+				</div>
+				<div class="info">
+					<p><a href="http://www.w3.org/TR/2003/CR-css3-color-20030514/#transparency" target="_blank">http://www.w3.org/TR/2003/CR-css3-color-20030514/#transparency</a></p>
+				</div>
+				<div class="example">
+					<h4><code>.opacity(<em>0.5, true</em>);</code></h4>
+					<div class="item">BLESS me!</div>
+				</div>
+			</section> <!-- // opacity -->
+
+			<section class="mixin transform" id="transform">
+				<h3><code>.transform(<em>@function</em>)</code></h3>
+				<div class="info">
+					<p><a href="http://www.w3.org/TR/css3-transforms/#transform-property" target="_blank">http://www.w3.org/TR/css3-transforms/#transform-property</a></p>
+				</div>
+				<div class="example">
+					<h4><code>.transform(<em>rotate(<em>70deg</em>) translate(<em>64px</em>)</em>);</code></h4>
+					<div class="item">BLESS me!</div>
+				</div>
+			</section> <!-- // transform -->
+
+			<section class="mixin transform-origin" id="transform-origin">
+				<h3><code>.transform-origin(<em>@origin</em>)</code></h3>
+				<div class="info">
+					<p><a href="http://www.w3.org/TR/css3-transforms/#transform-origin-property" target="_blank">http://www.w3.org/TR/css3-transforms/#transform-origin-property</a></p>
+				</div>
+				<div class="example">
+					<h4><code>.transform-origin(<em>left bottom</em>);</code></h4>
+				</div>
+			</section> <!-- // transform-origin -->
+
+			<section class="mixin transform-style" id="transform-style">
+				<h3><code>.transform-style(<em>@style</em>)</code></h3>
+				<div class="info">
+					<p><a href="http://www.w3.org/TR/css3-transforms/#transform-style-property" target="_blank">http://www.w3.org/TR/css3-transforms/#transform-style-property</a></p>
+				</div>
+				<div class="example">
+					<h4><code>.transform-style(<em>preserve-3d</em>);</code></h4>
+				</div>
+			</section> <!-- // transform-style -->
+
+			<section class="mixin transition" id="transition">
+				<h3><code>.transition(<em>@transition</em>)</code></h3>
+				<div class="variations">
+					<ul>
+						<li><code>.transition(<em>&quot;@transition[, @transition]...&quot;</em>)</code></li>
+					</ul>
+				</div>
+				<div class="info">
+					<p><a href="http://www.w3.org/TR/css3-transitions/#transition-shorthand-property" target="_blank">http://www.w3.org/TR/css3-transitions/#transition-shorthand-property</a></p>
+				</div>
+				<div class="example">
+					<h4><code>.transition(<em>all 2s</em>);</code></h4>
+					<div class="item">BLESS me!</div>
+				</div>
+			</section> <!-- // transition -->
+
+			<section class="mixin transition-delay" id="transition-delay">
+				<h3><code>.transition-delay(<em>@transition-delay</em>)</code></h3>
+				<div class="info">
+					<p><a href="http://www.w3.org/TR/css3-transitions/#transition-delay-property" target="_blank">http://www.w3.org/TR/css3-transitions/#transition-delay-property</a></p>
+				</div>
+				<div class="example">
+					<h4><code>.transition-delay(<em>0.5s</em>);</code></h4>
+				</div>
+			</section> <!-- // transition-delay -->
+
+			<section class="mixin transition-duration" id="transition-duration">
+				<h3><code>.transition-duration(<em>@transition-duration</em>)</code></h3>
+				<div class="info">
+					<p><a href="http://www.w3.org/TR/css3-transitions/#transition-duration-property" target="_blank">http://www.w3.org/TR/css3-transitions/#transition-duration-property</a></p>
+				</div>
+				<div class="example">
+					<h4><code>.transition-duration(<em>0.5s</em>);</code></h4>
+				</div>
+			</section> <!-- // transition-duration -->
+
+			<section class="mixin transition-property" id="transition-property">
+				<h3><code>.transition-property(<em>@transition-property</em>)</code></h3>
+				<div class="info">
+					<p><a href="http://www.w3.org/TR/css3-transitions/#transition-property-property" target="_blank">http://www.w3.org/TR/css3-transitions/#transition-property-property</a></p>
+				</div>
+				<div class="example">
+					<h4><code>.transition-property(<em>width height</em>);</code></h4>
+				</div>
+			</section> <!-- // transition-property -->
+
+			<section class="mixin transition-timing-function" id="transition-timing-function">
+				<h3><code>.transition-timing-function(<em>@transition-timing-function</em>)</code></h3>
+				<div class="info">
+					<p><a href="http://www.w3.org/TR/css3-transitions/#transition-timing-function" target="_blank">http://www.w3.org/TR/css3-transitions/#transition-timing-function</a></p>
+				</div>
+				<div class="example">
+					<h4><code>.transition-timing-function(<em>ease-out</em>);</code></h4>
+				</div>
+			</section> <!-- // transition-timing-function -->
+
+			<section class="mixin user-select" id="user-select">
+				<h3><code>.user-select(<em>@select</em>)</code></h3>
+				<div class="info">
+					<p><a href="http://www.w3.org/TR/2000/WD-css3-userint-20000216#user-select" target="_blank">http://www.w3.org/TR/2000/WD-css3-userint-20000216#user-select</a></p>
+				</div>
+				<div class="example">
+					<h4><code>.user-select(<em>none</em>);</code></h4>
+					<div class="item">BLESS me!</div>
+				</div>
+			</section> <!-- // user-select -->
+
+		</article> <!-- // css-properties -->
+
+		<article class="group" id="transform-functions">
+
+			<h2>Transform Functions</h2>
+
+			<section class="mixin rotate" id="rotate">
+				<h3><code>.rotate(<em>@degrees</em>)</code></h3>
+				<div class="info">
+					<p>Shortcut to <strong>rotate <a href="#transform">transform</a> function</strong>.</p><p><a href="http://www.w3.org/TR/css3-transforms/#rotate-function" target="_blank">http://www.w3.org/TR/css3-transforms/#rotate-function</a></p>
+				</div>
+				<div class="example">
+					<h4><code>.rotate(<em>35</em>);</code></h4>
+					<div class="item">BLESS me!</div>
+				</div>
+			</section> <!-- // rotate -->
+
+			<section class="mixin scale" id="scale">
+				<h3><code>.scale(<em>@ratio</em>)</code></h3>
+				<div class="info">
+					<p>Shortcut to <strong>scale <a href="#transform">transform</a> function</strong>.</p><p><a href="http://www.w3.org/TR/css3-transforms/#scale-function" target="_blank">http://www.w3.org/TR/css3-transforms/#scale-function</a></p>
+				</div>
+				<div class="example">
+					<h4><code>.scale(<em>1.5</em>);</code></h4>
+					<div class="item">BLESS me!</div>
+				</div>
+			</section> <!-- // scale -->
+
+			<section class="mixin skew" id="skew">
+				<h3><code>.skew(<em>@x[, @y]</em>)</code></h3>
+				<div class="info">
+					<p>Shortcut to <strong>skew <a href="#transform">transform</a> function</strong>.</p><p><a href="http://www.w3.org/TR/css3-transforms/#rotate-function" target="_blank">http://www.w3.org/TR/css3-transforms/#skew-function</a></p>
+				</div>
+				<div class="example">
+					<h4><code>.skew(<em>35</em>);</code></h4>
+					<div class="item">BLESS me!</div>
+				</div>
+			</section> <!-- // skew -->
+
+			<section class="mixin translate" id="translate">
+				<h3><code>.translate(<em>@x[, @y]</em>)</code></h3>
+				<div class="info">
+					<p>Shortcut to <strong>translate <a href="#transform">transform</a> function</strong>.</p><p><a href="http://www.w3.org/TR/css3-transforms/#translate-function" target="_blank">http://www.w3.org/TR/css3-transforms/#translate-function</a></p>
+				</div>
+				<div class="example">
+					<h4><code>.translate(<em>-128px, -32px</em>);</code></h4>
+					<div class="item">BLESS me!</div>
+				</div>
+			</section> <!-- // translate -->
+
+			<section class="mixin translate3d" id="translate3d">
+				<h3><code>.translate3d(<em>@x, @y, @z</em>)</code></h3>
+				<div class="info">
+					<p>Shortcut to <strong>translate3d <a href="#transform">transform</a> function</strong>.</p><p><a href="http://www.w3.org/TR/css3-transforms/#translate3d-function" target="_blank">http://www.w3.org/TR/css3-transforms/#translate3d-function</a></p>
+				</div>
+				<div class="example">
+					<h4><code>.translate3d(<em>-128px, -32px,  32px</em>);</code></h4>
+					<div class="item">BLESS me!</div>
+				</div>
+			</section> <!-- // translate3d -->
+
+		</article> <!-- // transform-functions -->
+
+		<article class="group" id="css-helpers">
+
+			<h2>CSS Helpers</h2>
+
+			<section class="mixin columns" id="columns">
+				<h3><code>.columns(<em>@count[, @gap]</em>)</code></h3>
+				<div class="info">
+					<p>Content columns shortcut to <strong><a href="#column-count">column-count</a></strong> with <strong><a href="#column-gap">column-gap</a></strong>.</p>
+				</div>
+				<div class="example">
+					<h4><code>.columns(<em>4, 20px</em>);</code></h4>
+				</div>
+			</section> <!-- // columns -->
+
+			<section class="mixin font-size" id="font-size">
+				<h3><code>.font-size(<em>@font-size</em>)</code></h3>
+				<div class="info">
+					<p>Set px/rem font-size.</p>
+				</div>
+				<div class="example">
+					<h4><code>.font-size(<em>24</em>);</code></h4>
+					<div class="item">BLESS me!</div>
+				</div>
+			</section> <!-- // font-size -->
+
+			<section class="mixin rounded" id="rounded">
+				<h3><code>.rounded(<em>@radius</em>)</code></h3>
+				<div class="variations">
+					<ul>
+						<li><code>.rounded-top-left(<em>@radius</em>)</code></li>
+						<li><code>.rounded-top-right(<em>@radius</em>)</code></li>
+						<li><code>.rounded-bottom-right(<em>@radius</em>)</code></li>
+						<li><code>.rounded-bottom-left(<em>@radius</em>)</code></li>
+					</ul>
+				</div>
+				<div class="info">
+					<p>Shortcut to <strong><a href="#border-radius">border-radius</a></strong>.</p>
+				</div>
+				<div class="example">
+					<h4><code>.rounded(<em>64px</em>);</code></h4>
+					<div class="item">BLESS me!</div>
+				</div>
+			</section> <!-- // rounded -->
+
+			<section class="mixin size" id="size">
+				<h3><code>.size(<em>@width[, @height]</em>)</code></h3>
+				<div class="variations">
+					<ul>
+						<li><code>.min-size(<em>@width[, @height]</em>)</code></li>
+						<li><code>.max-size(<em>@width[, @height]</em>)</code></li>
+					</ul>
+				</div>
+				<div class="info">
+					<p>Sizing mixins to set element width / height. One argument adds value to both properties.</p>
+				</div>
+				<div class="example">
+					<h4><code>.size(<em>256px, 128px</em>);</code></h4>
+					<div class="item">BLESS me!</div>
+				</div>
+			</section> <!-- // size -->
+
+			<section class="mixin spacing" id="spacing">
+				<h3><code>.spacing(<em>@margin[, @padding]</em>)</code></h3>
+				<div class="info">
+					<p>Spacing mixin to set element margin / padding. One argument adds value to both properties.</p>
+				</div>
+				<div class="example">
+					<h4><code>.spacing(<em>10px</em>);</code></h4>
+					<div class="item">BLESS me!</div>
+				</div>
+			</section> <!-- // spacing -->
+
+		</article> <!-- // css-helpers -->
+
+		<article class="group" id="psd-layer-style">
+
+			<h2>PSD Layer Style</h2>
+
+			<section class="mixin drop-shadow" id="drop-shadow">
+				<h3><code>.drop-shadow(<em>[@x[, @y[, @blur[, @spread[, @color[, @alpha]]]]]]</em>)</code></h3>
+				<div class="variations">
+					<ul>
+						<li><code>.drop-shadow(<em>@x @y @blur @spread @color @alpha</em>)</code></li>
+						<li><code>.drop-shadow(<em>@x @y @blur @spread @color</em>)</code></li>
+						<li><code>.drop-shadow(<em>@x @y @blur @color @alpha</em>)</code></li>
+						<li><code>.drop-shadow(<em>@x @y @blur @color</em>)</code></li>
+					</ul>
+				</div>
+				<div class="info">
+					<p>Shortcut to <strong><a href="#box-shadow">box-shadow</a></strong>.</p>
+				</div>
+				<div class="example">
+					<h4><code>.drop-shadow(<em>1px 1px 6px #000 0.6</em>);</code></h4>
+					<div class="item">BLESS me!</div>
+				</div>
+			</section> <!-- // drop-shadow -->
+
+			<section class="mixin inner-shadow" id="inner-shadow">
+				<h3><code>.inner-shadow(<em>[@x[, @y[, @blur[, @spread[, @color[, @alpha]]]]]]</em>)</code></h3>
+				<div class="variations">
+					<ul>
+						<li><code>.inner-shadow(<em>@x @y @blur @spread @color @alpha</em>)</code></li>
+						<li><code>.inner-shadow(<em>@x @y @blur @spread @color</em>)</code></li>
+						<li><code>.inner-shadow(<em>@x @y @blur @color @alpha</em>)</code></li>
+						<li><code>.inner-shadow(<em>@x @y @blur @color</em>)</code></li>
+					</ul>
+				</div>
+				<div class="info">
+					<p>Shortcut to <strong>inset <a href="#box-shadow">box-shadow</a></strong>.</p>
+				</div>
+				<div class="example">
+					<h4><code>.inner-shadow(<em>0 3px 9px #fff 0.9</em>);</code></h4>
+					<div class="item">BLESS me!</div>
+				</div>
+			</section> <!-- // inner-shadow -->
+
+			<section class="mixin stroke" id="stroke">
+				<h3><code>.stroke(<em>[@color[, @alpha[, @size]]]</em>)</code></h3>
+				<div class="variations">
+					<ul>
+						<li><code>.stroke(<em>@color, @alpha, @size, @string</em>)</code></li>
+						<li><code>.stroke(<em>@color, @alpha, @string</em>)</code></li>
+						<li><code>.stroke(<em>@color, @string</em>)</code></li>
+					</ul>
+				</div>
+				<div class="info">
+					<p>Crappy stroke created by four <a href="http://www.w3.org/TR/css-text-decor-3/#text-shadow" target="_blank">text shadows</a>. @string can take optional extra text shadow(s) as string.</p>
+				</div>
+			</section> <!-- // stroke -->
+
+		</article> <!-- // psd-layer-style -->
+
+		<article class="group" id="css-colors">
+
+			<h2>CSS Colors</h2>
+
+			<section class="mixin background-color" id="background-color">
+				<h3><code>.background-color(<em>@color[, @alpha]</em>)</code></h3>
+				<div class="info">
+					<p>Background color with alpha opacity.</p>
+				</div>
+				<div class="example">
+					<h4><code>.background-color(<em>purple, 0.6</em>);</code></h4>
+					<div class="item">BLESS me!</div>
+				</div>
+			</section> <!-- // background-color -->
+
+			<section class="mixin border-color" id="border-color">
+				<h3><code>.border-color(<em>@color[, @alpha]</em>)</code></h3>
+				<div class="info">
+					<p>Border color with alpha opacity.</p>
+				</div>
+				<div class="example">
+					<h4><code>.border-color(<em>red green blue, 0.6</em>);</code></h4>
+					<div class="item">BLESS me!</div>
+				</div>
+			</section> <!-- // border-color -->
+
+			<section class="mixin color" id="color">
+				<h3><code>.color(<em>@color[, @alpha]</em>)</code></h3>
+				<div class="info">
+					<p>Color with alpha opacity.</p>
+				</div>
+				<div class="example">
+					<h4><code>.color(<em>blue, 0.8</em>);</code></h4>
+					<div class="item">BLESS me!</div>
+				</div>
+			</section> <!-- // color -->
+
+			<section class="mixin linear-gradient" id="linear-gradient">
+				<h3><code>.linear-gradient(<em>@angle, @color[, @position[, @alpha]]</em>)</code></h3>
+				<div class="variations">
+					<ul>
+						<li><code>.linear-gradient-top(<em>@color[, @position[, @alpha[, @ie]]]</em>)</code></li>
+						<li><code>.linear-gradient-top-right(<em>@color[, @position[, @alpha]]</em>)</code></li>
+						<li><code>.linear-gradient-right(<em>@color[, @position[, @alpha[, @ie]]]</em>)</code></li>
+						<li><code>.linear-gradient-bottom-right(<em>@color[, @position[, @alpha]]</em>)</code></li>
+						<li><code>.linear-gradient-bottom(<em>@color[, @position[, @alpha[, @ie]]]</em>)</code></li>
+						<li><code>.linear-gradient-bottom-left(<em>@color[, @position[, @alpha]]</em>)</code></li>
+						<li><code>.linear-gradient-left(<em>@color[, @position[, @alpha[, @ie]]]</em>)</code></li>
+						<li><code>.linear-gradient-top-left(<em>@color[, @position[, @alpha]]</em>)</code></li>
+						<li><code>.ie-linear-gradient-top(<em>@color[, @alpha]</em>)</code></li>
+						<li><code>.ie-linear-gradient-right(<em>@color[, @alpha]</em>)</code></li>
+						<li><code>.ie-linear-gradient-bottom(<em>@color[, @alpha]</em>)</code></li>
+						<li><code>.ie-linear-gradient-left(<em>@color[, @alpha]</em>)</code></li>
+					</ul>
+				</div>
+				<div class="info">
+					<p>Linear gradient with <em>unlimited</em> color / position breakpoints and alpha opacity support.</p>
+				</div>
+				<div class="example">
+					<h4><code>.linear-gradient-left(<em>red orange yellow green blue, 0% 25% 50% 75% 100%</em>);</code></h4>
+					<div class="item">BLESS me!</div>
+				</div>
+			</section> <!-- // linear-gradient -->
+
+		</article> <!-- // css-colors -->
+		
+	</section> <!-- // main -->
+	
+	<nav id="menu" role="navigation">
+		
+		<div class="example default">
+			<div class="item">BLESS me!</div>
+		</div>
+		
+		<ul class="top">
+			<li><a href="#top">Top</a></li>
+			<li><a href="https://github.com/BlowbackDesign/BLESS">GitHub</a></li>
+			<li><a href="https://github.com/BlowbackDesign/BLESS/zipball/master/">ZIP</a></li>
+		</ul>
+		
+		<select name="mixins" id="dropdown">
+			<optgroup label="CSS Properties">
+				<option value="#background-clip">background-clip</option>
+				<option value="#background-size">background-size</option>
+				<option value="#border-radius">border-radius</option>
+				<option value="#box-shadow">box-shadow</option>
+				<option value="#box-sizing">box-sizing</option>
+				<option value="#column-count">column-count</option>
+				<option value="#column-gap">column-gap</option>
+				<option value="#opacity">opacity</option>
+				<option value="#transform">transform</option>
+				<option value="#transform-origin">transform-origin</option>
+				<option value="#transform-style">transform-style</option>
+				<option value="#transition">transition</option>
+				<option value="#transition-delay">transition-delay</option>
+				<option value="#transition-duration">transition-duration</option>
+				<option value="#transition-property">transition-property</option>
+				<option value="#transition-timing-function">transition-timing-function</option>
+				<option value="#user-select">user-select</option>
+			</optgroup>
+			<optgroup label="Transform Functions">
+				<option value="#rotate">rotate</option>
+				<option value="#scale">scale</option>
+				<option value="#skew">skew</option>
+				<option value="#translate">translate</option>
+				<option value="#translate3d">translate3d</option>
+			</optgroup>
+			<optgroup label="CSS Helpers">
+				<option value="#columns">columns</option>
+				<option value="#font-size">font-size</option>
+				<option value="#rounded">rounded</option>
+				<option value="#size">size</option>
+				<option value="#spacing">spacing</option>
+			</optgroup>
+			<optgroup label="PSD Layer Style">
+				<option value="#drop-shadow">drop-shadow</option>
+				<option value="#inner-shadow">inner-shadow</option>
+				<option value="#stroke">stroke</option>
+			</optgroup>
+			<optgroup label="CSS Colors">
+				<option value="#background-color">background-color</option>
+				<option value="#border-color">border-color</option>
+				<option value="#color">color</option>
+				<option value="#linear-gradient">linear-gradient</option>
+			</optgroup>
+		</select>
+		
+		<ul class="mixins">
+			<li><a href="#css-properties"><strong>CSS Properties</strong></a>
+				<ul>
+					<li><a href="#background-clip">background-clip</a></li>
+					<li><a href="#background-size">background-size</a></li>
+					<li><a href="#border-radius">border-radius</a></li>
+					<li><a href="#box-shadow">box-shadow</a></li>
+					<li><a href="#box-sizing">box-sizing</a></li>
+					<li><a href="#column-count">column-count</a></li>
+					<li><a href="#column-gap">column-gap</a></li>
+					<li><a href="#opacity">opacity</a></li>
+					<li><a href="#transform">transform</a></li>
+					<li><a href="#transform-origin">transform-origin</a></li>
+					<li><a href="#transform-style">transform-style</a></li>
+					<li><a href="#transition">transition</a></li>
+					<li><a href="#transition-delay">transition-delay</a></li>
+					<li><a href="#transition-duration">transition-duration</a></li>
+					<li><a href="#transition-property">transition-property</a></li>
+					<li><a href="#transition-timing-function">transition-timing-function</a></li>
+					<li><a href="#user-select">user-select</a></li>
+				</ul>
+			<i></i></li>
+			<li><a href="#transform-functions"><strong>Transform Functions</strong></a>
+				<ul>
+					<li><a href="#rotate">rotate</a></li>
+					<li><a href="#scale">scale</a></li>
+					<li><a href="#skew">skew</a></li>
+					<li><a href="#translate">translate</a></li>
+					<li><a href="#translate3d">translate3d</a></li>
+				</ul>
+			<i></i></li>
+			<li><a href="#css-helpers"><strong>CSS Helpers</strong></a>
+				<ul>
+					<li><a href="#columns">columns</a></li>
+					<li><a href="#font-size">font-size</a></li>
+					<li><a href="#rounded">rounded</a></li>
+					<li><a href="#size">size</a></li>
+					<li><a href="#spacing">spacing</a></li>
+				</ul>
+			<i></i></li>
+			<li><a href="#psd-layer-style"><strong>PSD Layer Style</strong></a>
+				<ul>
+					<li><a href="#drop-shadow">drop-shadow</a></li>
+					<li><a href="#inner-shadow">inner-shadow</a></li>
+					<li><a href="#stroke">stroke</a></li>
+				</ul>
+			<i></i></li>
+			<li><a href="#css-colors"><strong>CSS Colors</strong></a>
+				<ul>
+					<li><a href="#background-color">background-color</a></li>
+					<li><a href="#border-color">border-color</a></li>
+					<li><a href="#color">color</a></li>
+					<li><a href="#linear-gradient">linear-gradient</a></li>
+				</ul>
+			<i></i></li>
+		</ul>
+		
+	</nav> <!-- // menu -->
+	
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../vendor/jquery-1.10.2.min.js"><\/script>')</script>
+
+<script>
+	function scrollToElement(hash) {
+		var pos = $(hash).offset().top - 19;
+		$('html,body').animate({ scrollTop:pos }, 300);
+	}
+	function toggleMenu(e) {
+		e.parent().toggleClass('collapsed');
+		e.parent().find('ul').slideToggle(200);
+	}
+	$(document).ready(function() {
+		if (window.location.hash) {
+			$('#dropdown').val(window.location.hash);
+		} else {
+			$('#dropdown').val('');
+		}
+		$('#dropdown').change(function() {
+			var hash = $(this).val();
+			scrollToElement(hash);
+			window.location.hash = hash;
+		});
+		$('a[href^="#"]').click(function(e) {
+			e.preventDefault();
+			var hash = $(this).attr('href');
+			scrollToElement(hash);
+			window.location.hash = hash;
+			$('#dropdown').val(hash);
+		});
+		$('.mixin .example').each(function() {
+			var example = $(this);
+			if (example.has('.item').length) {
+				example.addClass('active');
+				$('h4', example).click(function() {
+					$('.item', example).slideToggle(300);
+				});
+			}
+		});
+		$('#menu li i').click(function() {
+			toggleMenu($(this));
+		});
+		toggleMenu($('#menu li i'));
+	});
+</script>
+
+</body>
+</html>

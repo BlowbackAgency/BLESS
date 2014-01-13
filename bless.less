@@ -1,14 +1,11 @@
-/*!
- * bless.less
- * BLESS: Collection of usefull LESS mixins.
- * @author Blowback.fi
- * @version 1.0 [2013-2-21]
- */
+/*! BLESS.less | Version 1.1.0 | MIT Licence | https://github.com/BlowbackDesign/BLESS */
+
+@bless-ie: true;
 
 
-/* ===================================================
-   CSS3 properties
-   =================================================== */
+// ===================================================
+// CSS3 Properties
+// ===================================================
 
 // background-clip
 .background-clip(@clip) {
@@ -26,31 +23,34 @@
 }
 
 // border-radius
-.border-radius(@radius) when (isstring(@radius)) {
-  -webkit-border-radius: e(@radius);
-     -moz-border-radius: e(@radius);
-          border-radius: e(@radius);
-}
-.border-radius(@radius) when not (isstring(@radius)) {
+.border-radius(@radius) {
   -webkit-border-radius: @radius;
      -moz-border-radius: @radius;
           border-radius: @radius;
 }
+
+// border-top-left-radius
 .border-top-left-radius(@radius) {
   -webkit-border-top-left-radius: @radius;
       -moz-border-radius-topleft: @radius;
           border-top-left-radius: @radius;
 }
+
+// border-top-right-radius
 .border-top-right-radius(@radius) {
   -webkit-border-top-right-radius: @radius;
       -moz-border-radius-topright: @radius;
           border-top-right-radius: @radius;
 }
+
+// border-bottom-right-radius
 .border-bottom-right-radius(@radius) {
   -webkit-border-bottom-right-radius: @radius;
       -moz-border-radius-bottomright: @radius;
           border-bottom-right-radius: @radius;
 }
+
+// border-bottom-left-radius
 .border-bottom-left-radius(@radius) {
   -webkit-border-bottom-left-radius: @radius;
       -moz-border-radius-bottomleft: @radius;
@@ -58,74 +58,110 @@
 }
 
 // box-shadow
-.box-shadow(@args) when (isstring(@args)) {
-  -webkit-box-shadow: e(@args);
-     -moz-box-shadow: e(@args);
-          box-shadow: e(@args);
+.box-shadow(@shadow) when not (isstring(@shadow)) {
+  -webkit-box-shadow: @shadow;
+     -moz-box-shadow: @shadow;
+          box-shadow: @shadow;
 }
-.box-shadow(@args) when not (isstring(@args)) {
-  -webkit-box-shadow: @args;
-     -moz-box-shadow: @args;
-          box-shadow: @args;
+
+// box-shadow (string)
+.box-shadow(@shadow) when (isstring(@shadow)) {
+  -webkit-box-shadow: e(@shadow);
+     -moz-box-shadow: e(@shadow);
+          box-shadow: e(@shadow);
 }
 
 // box-sizing
-.box-sizing(@boxmodel) {
-  -webkit-box-sizing: @boxmodel;
-     -moz-box-sizing: @boxmodel;
-      -ms-box-sizing: @boxmodel;
-          box-sizing: @boxmodel;
+.box-sizing(@size) {
+  -webkit-box-sizing: @size;
+     -moz-box-sizing: @size;
+      -ms-box-sizing: @size;
+          box-sizing: @size;
+}
+
+// column-count
+.column-count(@count) {
+  -webkit-column-count: @count;
+     -moz-column-count: @count;
+          column-count: @count;
+}
+
+// column-gap
+.column-gap(@gap) {
+  -webkit-column-gap: @gap;
+     -moz-column-gap: @gap;
+          column-gap: @gap;
+}
+
+// opacity
+.opacity(@opacity; @ie:@bless-ie) {
+  -webkit-opacity: @opacity;
+   -khtml-opacity: @opacity;
+     -moz-opacity: @opacity;
+          opacity: @opacity;
+}
+
+// opacity (IE filter enabled)
+.opacity(@opacity; @ie:@bless-ie) when (@ie=true) {
+  .ie-opacity(@opacity);
+}
+
+// opacity (IE filter)
+.ie-opacity(@opacity; ...) {
+  @_opacity: @opacity * 100;
+  -ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=@{_opacity})";
+      filter: ~"alpha(opacity=@{_opacity})";
 }
 
 // transform
-.transform(@arguments) {
-  -webkit-transform: @arguments;
-     -moz-transform: @arguments;
-      -ms-transform: @arguments;
-       -o-transform: @arguments;
-          transform: @arguments;
+.transform(@function) {
+  -webkit-transform: @function;
+     -moz-transform: @function;
+      -ms-transform: @function;
+       -o-transform: @function;
+          transform: @function;
 }
-// scale
-.scale(@ratio) {
-  .transform(scale(@ratio));
+
+// transform-origin
+.transform-origin(@origin) {
+  -webkit-transform-origin: @origin;
+     -moz-transform-origin: @origin;
+       -o-transform-origin: @origin;
+          transform-origin: @origin;
 }
-// skew
-.skew(@x, @y) {
-  -webkit-backface-visibility: hidden;
-  .transform(skewX(~"@{x}deg") skewY(~"@{y}deg"));
-}
-// rotate
-.rotate(@degrees) {
-  .transform(rotate(~"@{degrees}deg"));
-}
-// translate
-.translate(@x, @y) {
-  .transform(translate(@x, @y));
-}
-// translate3d
-.translate3d(@x, @y, @z) {
-  .transform(translate3d(@x, @y, @z));
+
+// transform-style 
+.transform-style(@style) {
+  -webkit-transform-style: @style;
+     -moz-transform-style: @style;
+          transform-style: @style;
 }
 
 // transition
-.transition(@transition) when (isstring(@transition)) {
-  -webkit-transition: e(@transition);
-     -moz-transition: e(@transition);
-       -o-transition: e(@transition);
-          transition: e(@transition);
-}
 .transition(@transition) when not (isstring(@transition)) {
   -webkit-transition: @transition;
      -moz-transition: @transition;
        -o-transition: @transition;
           transition: @transition;
 }
-.transition-delay(@transition-delay) {
-  -webkit-transition-delay: @transition-delay;
-     -moz-transition-delay: @transition-delay;
-       -o-transition-delay: @transition-delay;
-          transition-delay: @transition-delay;
+
+// transition (string)
+.transition(@transition) when (isstring(@transition)) {
+  -webkit-transition: e(@transition);
+     -moz-transition: e(@transition);
+       -o-transition: e(@transition);
+          transition: e(@transition);
 }
+
+// transition-property
+.transition-property(@transition-property) {
+  -webkit-transition-property: @transition-property;
+     -moz-transition-property: @transition-property;
+       -o-transition-property: @transition-property;
+          transition-property: @transition-property;
+}
+
+// transition-duration
 .transition-duration(@transition-duration) {
   -webkit-transition-duration: @transition-duration;
      -moz-transition-duration: @transition-duration;
@@ -133,20 +169,20 @@
           transition-duration: @transition-duration;
 }
 
-// opacity
-.opacity(@opacity:0.6, @filter:false) {
-  -webkit-opacity: @opacity;
-   -khtml-opacity: @opacity;
-     -moz-opacity: @opacity;
-          opacity: @opacity;
+// transition-timing-function
+.transition-timing-function(@transition-timing-function) {
+  -webkit-transition-timing-function: @transition-timing-function;
+     -moz-transition-timing-function: @transition-timing-function;
+       -o-transition-timing-function: @transition-timing-function;
+          transition-timing-function: @transition-timing-function;
 }
-.opacity(@opacity:0.6, @filter:false) when (@filter=ie) {
-  .ie-opacity(@opacity);
-}
-.ie-opacity(@opacity:0.6, ...) {
-  @opacityprc: @opacity * 100;
-  -ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=@{opacityprc})";
-      filter: ~"alpha(opacity=@{opacityprc})";
+
+// transition-delay
+.transition-delay(@transition-delay) {
+  -webkit-transition-delay: @transition-delay;
+     -moz-transition-delay: @transition-delay;
+       -o-transition-delay: @transition-delay;
+          transition-delay: @transition-delay;
 }
 
 // user-select
@@ -158,222 +194,420 @@
           user-select: @select;
 }
 
-// selection
-/*.selection(@selection) {
-  ::-moz-selection: @selection;
-       ::selection: @selection;
-}*/
+
+// ===================================================
+// Transform Functions
+// ===================================================
+
+// rotate
+.rotate(@degrees) {
+  @_degrees: unit(@degrees);
+  .transform(rotate(~"@{_degrees}deg"));
+}
+
+// scale
+.scale(@x; @y:null) when not (isnumber(@y)) {
+  .transform(scale(@x));
+}
+
+// scale (x, y)
+.scale(@x; @y:null) when (isnumber(@y)) {
+  .transform(scale(@x, @y));
+}
+
+// skew
+.skew(@x; @y:0) {
+  @_x: unit(@x);
+  @_y: unit(@y);
+  -webkit-backface-visibility: hidden;
+  .transform(skew(~"@{_x}deg", ~"@{_y}deg"));
+}
+
+// translate
+.translate(@x; @y:0) {
+  .transform(translate(@x, @y));
+}
+
+// translate3d
+.translate3d(@x; @y; @z) {
+  .transform(translate3d(@x, @y, @z));
+}
 
 
-/* ===================================================
-   CSS helper shortcuts
-   =================================================== */
+// ===================================================
+// CSS Helpers
+// ===================================================
 
-// border-radius shortcuts
+// columns
+.columns(@count; @gap:1em) {
+  .column-count(@count);
+  .column-gap(@gap);
+}
+
+// font-size (px/rem)
+.font-size(@font-size:16) {
+  @_size: unit(@font-size);
+	@_rem: (@_size / 10);
+  font-size: @_size * 1px;
+  font-size: ~"@{_rem}rem";
+}
+
+// border-radius shortcut
 .rounded(@radius) { .border-radius(@radius); }
 .rounded-top-left(@radius) { .border-top-left-radius(@radius); }
 .rounded-top-right(@radius) { .border-top-right-radius(@radius); }
 .rounded-bottom-right(@radius) { .border-bottom-right-radius(@radius); }
 .rounded-bottom-left(@radius) { .border-bottom-left-radius(@radius); }
 
-// font-size
-.font-size(@font-size:16){
-  @rem: (@font-size / 10);
-  font-size: @font-size * 1px;
-  font-size: ~"@{rem}rem";
-}
-
 // size
-.size(@width:false, @height:false) when not (@width=false) and (@height=false) {
+.size(@width; @height:null) when (@height=null) {
   width: @width;
   height: @width;
 }
-.size(@width:false, @height:false) when not (@width=false) and not (@height=false) {
+.size(@width; @height:null) when not (@height=null) {
   width: @width;
   height: @height;
 }
 
 // min-size
-.min-size(@width:false, @height:false) when not (@width=false) and (@height=false) {
+.min-size(@width; @height:null) when (@height=null) {
   min-width: @width;
   min-height: @width;
 }
-.min-size(@width:false, @height:false) when not (@width=false) and not (@height=false) {
+.min-size(@width; @height:null) when not (@height=null) {
   min-width: @width;
   min-height: @height;
 }
 
 // max-size
-.max-size(@width:false, @height:false) when not (@width=false) and (@height=false) {
+.max-size(@width; @height:null) when (@height=null) {
   max-width: @width;
   max-height: @width;
 }
-.max-size(@width:false, @height:false) when not (@width=false) and not (@height=false) {
+.max-size(@width; @height:null) when not (@height=null) {
   max-width: @width;
   max-height: @height;
 }
 
 // spacing
-.spacing(@margin:false, @padding:false) when not (@margin=false) and (@padding=false) {
+.spacing(@margin; @padding:null) when (@padding=null) {
   margin: @margin;
   padding: @margin;
 }
-.spacing(@margin:false, @padding:false) when not (@margin=false) and not (@padding=false) {
+.spacing(@margin; @padding:null) when not (@padding=null) {
   margin: @margin;
   padding: @padding;
 }
 
 
-/* ===================================================
-   PSD layer style like mixins
-   =================================================== */
+// ===================================================
+// PSD Layer Style
+// ===================================================
 
 // drop-shadow
-.drop-shadow(@x:2px, @y:3px, @blur:5px, @spread:0, @color:#000, @alpha:0.3) {
+.drop-shadow(@x:2px; @y:3px; @blur:5px; @spread:0; @color:#000; @alpha:0.3) when (iscolor(@color)) {
 	.box-shadow(@x @y @blur @spread hsla(hue(@color), saturation(@color), lightness(@color), @alpha));
 }
+// drop-shadow [@x @y @blur @spread @color @alpha]
+.drop-shadow(@args) when (iscolor(extract(@args, 5))) and (isnumber(extract(@args, 6))) {
+	.drop-shadow(extract(@args, 1); extract(@args, 2); extract(@args, 3); extract(@args, 4); extract(@args, 5); extract(@args, 6));
+}
+// drop-shadow [@x @y @blur @spread @color]
+.drop-shadow(@args) when (iscolor(extract(@args, 5))) and not (isnumber(extract(@args, 6))) {
+	.drop-shadow(extract(@args, 1); extract(@args, 2); extract(@args, 3); extract(@args, 4); extract(@args, 5));
+}
+// drop-shadow [@x @y @blur @color @alpha]
+.drop-shadow(@args) when (iscolor(extract(@args, 4))) and (isnumber(extract(@args, 5))) {
+	.drop-shadow(extract(@args, 1); extract(@args, 2); extract(@args, 3); 0; extract(@args, 4); extract(@args, 5));
+}
+// drop-shadow [@x @y @blur @color]
+.drop-shadow(@args) when (iscolor(extract(@args, 4))) and not (isnumber(extract(@args, 5))) {
+	.drop-shadow(extract(@args, 1); extract(@args, 2); extract(@args, 3); 0; extract(@args, 4));
+}
+
 // inner-shadow
-.inner-shadow(@x:2px, @y:3px, @blur:5px, @spread:0, @color:#000, @alpha:0.2) {
+.inner-shadow(@x:2px; @y:3px; @blur:5px; @spread:0; @color:#000; @alpha:0.2) {
 	.box-shadow(inset @x @y @blur @spread hsla(hue(@color), saturation(@color), lightness(@color), @alpha));
+}
+// inner-shadow [@x @y @blur @spread @color @alpha]
+.inner-shadow(@args) when (iscolor(extract(@args, 5))) and (isnumber(extract(@args, 6))) {
+	.inner-shadow(extract(@args, 1); extract(@args, 2); extract(@args, 3); extract(@args, 4); extract(@args, 5); extract(@args, 6));
+}
+// inner-shadow [@x @y @blur @spread @color]
+.inner-shadow(@args) when (iscolor(extract(@args, 5))) and not (isnumber(extract(@args, 6))) {
+	.inner-shadow(extract(@args, 1); extract(@args, 2); extract(@args, 3); extract(@args, 4); extract(@args, 5));
+}
+// inner-shadow [@x @y @blur @color @alpha]
+.inner-shadow(@args) when (iscolor(extract(@args, 4))) and (isnumber(extract(@args, 5))) {
+	.inner-shadow(extract(@args, 1); extract(@args, 2); extract(@args, 3); 0; extract(@args, 4); extract(@args, 5));
+}
+// inner-shadow [@x @y @blur @color]
+.inner-shadow(@args) when (iscolor(extract(@args, 4))) and not (isnumber(extract(@args, 5))) {
+	.inner-shadow(extract(@args, 1); extract(@args, 2); extract(@args, 3); 0; extract(@args, 4));
 }
 
 // stroke
-.stroke(@color:#f30, @alpha:1, @size:1px, @string:false) when (@string=false) {
-  @hsla: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
-  text-shadow:-@size -@size 0 @hsla, @size -@size 0 @hsla, -@size @size 0 @hsla, @size @size 0 @hsla;
+.stroke(@color:#f30; @alpha:1; @size:1px; @string:null) when (@string=null) {
+  @_color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+  text-shadow:-@size -@size 0 @_color, @size -@size 0 @_color, -@size @size 0 @_color, @size @size 0 @_color;
 }
-// stroke (xtra shadow string)
-.stroke(@color:#f30, @alpha:1, @size:1px, @string:false) when (isstring(@string)) {
-  @hsla: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
-  text-shadow:@string, -@size -@size 0 @hsla, @size -@size 0 @hsla, -@size @size 0 @hsla, @size @size 0 @hsla;
+// stroke (xtra text shadow @string enabled)
+.stroke(@color:#f30; @alpha:1; @size:1px; @string:null) when (isstring(@string)) {
+  @_color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+  text-shadow:@string, -@size -@size 0 @_color, @size -@size 0 @_color, -@size @size 0 @_color, @size @size 0 @_color;
+}
+// stroke [@color, @alpha, string]
+.stroke(@color:#f30; @alpha:1; @size:1px; @string:null) when (isstring(@size)) {
+	.stroke(@color; @alpha; 1px; @size);
+}
+// stroke [@color, string]
+.stroke(@color:#f30; @alpha:1; @size:1px; @string:null) when (isstring(@alpha)) {
+	.stroke(@color; 1; @size; @alpha);
 }
 
 
-/* ===================================================
-   PSD/CSS alpha opacity colors
-   =================================================== */
+// ===================================================
+// PSD/CSS Alpha Opacity Colors
+// ===================================================
 
 // background-color
-.background-color(@color:white, @alpha:0.6) {
+.background-color(@color; @alpha:0.7) {
   background-color: @color;
   background-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
 }
 
-// border-color
-.border-color(@color:black, @alpha:0.3) when not (iscolor(@alpha)) {
+// border-color (single color and alpha)
+.border-color(@color; @alpha:0.7) when (iscolor(@color)) and (isnumber(@alpha)) {
   border-color: @color;
   border-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
 }
-.border-color(@topbottom, @rightleft, @alpha:0.7) when (iscolor(@rightleft)) and not (iscolor(@alpha)) {
-  @hsla_y: hsla(hue(@topbottom), saturation(@topbottom), lightness(@topbottom), @alpha);
-  @hsla_x: hsla(hue(@rightleft), saturation(@rightleft), lightness(@rightleft), @alpha);
-  border-color: @topbottom @rightleft;
-  border-color: @hsla_y @hsla_x;
+
+// border-color (two colors and single alpha)
+.border-color(@color; @alpha:0.7) when (iscolor(extract(@color, 2))) and not (iscolor(extract(@color, 3))) and (isnumber(@alpha)) {
+  @_top_bottom: extract(@color, 1);
+	@_right_left: extract(@color, 2);
+	@__top_bottom: hsla(hue(@_top_bottom), saturation(@_top_bottom), lightness(@_top_bottom), @alpha);
+  @__right_left: hsla(hue(@_right_left), saturation(@_right_left), lightness(@_right_left), @alpha);
+  border-color: @_top_bottom @_right_left;
+  border-color: @__top_bottom @__right_left;
 }
-.border-color(@top, @rightleft, @bottom, @alpha:0.7) when (iscolor(@bottom)) and not (iscolor(@alpha)) {
-  @hsla_x: hsla(hue(@rightleft), saturation(@rightleft), lightness(@rightleft), @alpha);
-  @hsla_b: hsla(hue(@bottom), saturation(@bottom), lightness(@bottom), @alpha);
-  @hsla_t: hsla(hue(@top), saturation(@top), lightness(@top), @alpha);
-  border-color: @top @rightleft @bottom;
-  border-color: @hsla_t @hsla_x @hsla_b;
+
+// border-color (three colors and single alpha)
+.border-color(@color; @alpha:0.7) when (iscolor(extract(@color, 3))) and not (iscolor(extract(@color, 4))) and (isnumber(@alpha)) {
+  @_top: extract(@color, 1);
+	@_right_left: extract(@color, 2);
+  @_bottom: extract(@color, 3);
+	@__top: hsla(hue(@_top), saturation(@_top), lightness(@_top), @alpha);
+  @__right_left: hsla(hue(@_right_left), saturation(@_right_left), lightness(@_right_left), @alpha);
+  @__bottom: hsla(hue(@_bottom), saturation(@_bottom), lightness(@_bottom), @alpha);
+  border-color: @_top @_right_left @_bottom;
+  border-color: @__top @__right_left @__bottom;
 }
-.border-color(@top, @right, @bottom, @left, @alpha:0.7) when (iscolor(@left)) and not (iscolor(@alpha)) {
-  @hsla_t: hsla(hue(@top), saturation(@top), lightness(@top), @alpha);
-  @hsla_r: hsla(hue(@right), saturation(@right), lightness(@right), @alpha);
-  @hsla_b: hsla(hue(@bottom), saturation(@bottom), lightness(@bottom), @alpha);
-  @hsla_l: hsla(hue(@left), saturation(@left), lightness(@left), @alpha);
-  border-color: @top @right @bottom @left;
-  border-color: @hsla_t @hsla_r @hsla_b @hsla_l;
+
+// border-color (four colors and single alpha)
+.border-color(@color; @alpha:0.7) when (iscolor(extract(@color, 4))) and (isnumber(@alpha)) {
+  @_top: extract(@color, 1);
+  @_right: extract(@color, 2);
+  @_bottom: extract(@color, 3);
+  @_left: extract(@color, 4);
+	@__top: hsla(hue(@_top), saturation(@_top), lightness(@_top), @alpha);
+  @__right: hsla(hue(@_right), saturation(@_right), lightness(@_right), @alpha);
+  @__bottom: hsla(hue(@_bottom), saturation(@_bottom), lightness(@_bottom), @alpha);
+  @__left: hsla(hue(@_left), saturation(@_left), lightness(@_left), @alpha);
+  border-color: @_top @_right @_bottom @_left;
+  border-color: @__top @__right @__bottom @__left;
+}
+
+// border-color (two colors and two alphas)
+.border-color(@color; @alpha) when (iscolor(extract(@color, 2))) and not (iscolor(extract(@color, 3))) and (isnumber(extract(@alpha, 2))) and not (isnumber(extract(@alpha, 3))) {
+  @_top_bottom: extract(@color, 1);
+	@_right_left: extract(@color, 2);
+	@__top_bottom: hsla(hue(@_top_bottom), saturation(@_top_bottom), lightness(@_top_bottom), extract(@alpha, 1));
+  @__right_left: hsla(hue(@_right_left), saturation(@_right_left), lightness(@_right_left), extract(@alpha, 2));
+  border-color: @_top_bottom @_right_left;
+  border-color: @__top_bottom @__right_left;
+}
+
+// border-color (three colors and three alphas)
+.border-color(@color; @alpha) when (iscolor(extract(@color, 3))) and not (iscolor(extract(@color, 4))) and (isnumber(extract(@alpha, 3))) and not (isnumber(extract(@alpha, 4))) {
+  @_top: extract(@color, 1);
+	@_right_left: extract(@color, 2);
+  @_bottom: extract(@color, 3);
+	@__top: hsla(hue(@_top), saturation(@_top), lightness(@_top), extract(@alpha, 1));
+  @__right_left: hsla(hue(@_right_left), saturation(@_right_left), lightness(@_right_left), extract(@alpha, 2));
+  @__bottom: hsla(hue(@_bottom), saturation(@_bottom), lightness(@_bottom), extract(@alpha, 3));
+  border-color: @_top @_right_left @_bottom;
+  border-color: @__top @__right_left @__bottom;
+}
+
+// border-color (four colors and four alphas)
+.border-color(@color; @alpha) when (iscolor(extract(@color, 4))) and (isnumber(extract(@alpha, 4))) {
+  @_top: extract(@color, 1);
+  @_right: extract(@color, 2);
+  @_bottom: extract(@color, 3);
+  @_left: extract(@color, 4);
+	@__top: hsla(hue(@_top), saturation(@_top), lightness(@_top), extract(@alpha, 1));
+  @__right: hsla(hue(@_right), saturation(@_right), lightness(@_right), extract(@alpha, 2));
+  @__bottom: hsla(hue(@_bottom), saturation(@_bottom), lightness(@_bottom), extract(@alpha, 3));
+  @__left: hsla(hue(@_left), saturation(@_left), lightness(@_left), extract(@alpha, 4));
+  border-color: @_top @_right @_bottom @_left;
+  border-color: @__top @__right @__bottom @__left;
 }
 
 // color
-.color(@color:white, @alpha:0.8) {
+.color(@color; @alpha:0.7) {
   color: @color;
   color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
 }
 
-// gradient
-.gradient(@angle:90, @string:false) when (isnumber(@angle)) and (isstring(@string)) {
-  @angle_native: (@angle + 90) - (@angle * 2);
-  background: -webkit-linear-gradient(~"@{angle}deg", e(@string));
-  background:    -moz-linear-gradient(~"@{angle}deg", e(@string));
-  background:     -ms-linear-gradient(~"@{angle}deg", e(@string));
-  background:      -o-linear-gradient(~"@{angle}deg", e(@string));
-  background:  linear-gradient(~"@{angle_native}deg", e(@string));
-}
-.gradient(@angle:90, @start:#fafafa, @stop:#ccc, @alpha_start:1, @alpha_stop:1, @a:0%, @b:100%) when (isnumber(@angle)) and (iscolor(@start)) {
-  @hsla_start: hsla(hue(@start), saturation(@start), lightness(@start), @alpha_start);
-  @hsla_stop: hsla(hue(@stop), saturation(@stop), lightness(@stop), @alpha_stop);
-  @angle_native: (@angle + 90) - (@angle * 2);
-  background: -webkit-linear-gradient(~"@{angle}deg", @hsla_start @a, @hsla_stop @b);
-  background:    -moz-linear-gradient(~"@{angle}deg", @hsla_start @a, @hsla_stop @b);
-  background:     -ms-linear-gradient(~"@{angle}deg", @hsla_start @a, @hsla_stop @b);
-  background:      -o-linear-gradient(~"@{angle}deg", @hsla_start @a, @hsla_stop @b);
-  background:  linear-gradient(~"@{angle_native}deg", @hsla_start @a, @hsla_stop @b);
-}
-.gradient-top(@start:#eee, @stop:#ccc, @alpha_start:1, @alpha_stop:1, @a:0%, @b:100%, @filter:false) {
-  background: -webkit-gradient(linear, center top, center bottom, color-stop(@a, @start), color-stop(@b, @stop));
-  .gradient(-90, @start, @stop, @alpha_start, @alpha_stop, @a, @b);
-}
-.gradient-top(@start:#eee, @stop:#ccc, @alpha_start:1, @alpha_stop:1, @a:0%, @b:100%, @filter) when (@filter=ie) {
-  .ie-gradient-top(@start, @stop, @alpha_start, @alpha_stop);
-}
-.gradient-left(@start:#eee, @stop:#ccc, @alpha_start:1, @alpha_stop:1, @a:0%, @b:100%, @filter:false) {
-  background: -webkit-gradient(linear, left center, right center, color-stop(@a, @start), color-stop(@b, @stop));
-  .gradient(0, @start, @stop, @alpha_start, @alpha_stop, @a, @b);
-}
-.gradient-left(@start:#eee, @stop:#ccc, @alpha_start:1, @alpha_stop:1, @a:0%, @b:100%, @filter:false) when (@filter=ie) {
-  .ie-gradient-left(@start, @stop, @alpha_start, @alpha_stop);
-}
-.gradient-bottom(@start:#eee, @stop:#ccc, @alpha_start:1, @alpha_stop:1, @a:0%, @b:100%, @filter:false) {
-  background: -webkit-gradient(linear, center bottom, center top, color-stop(@a, @start), color-stop(@b, @stop));
-  .gradient(90, @start, @stop, @alpha_start, @alpha_stop, @a, @b);
-}
-.gradient-bottom(@start:#eee, @stop:#ccc, @alpha_start:1, @alpha_stop:1, @a:0%, @b:100%, @filter:false) when (@filter=ie) {
-  .ie-gradient-bottom(@start, @stop, @alpha_start, @alpha_stop);
-}
-.gradient-right(@start:#eee, @stop:#ccc, @alpha_start:1, @alpha_stop:1, @a:0%, @b:100%, @filter:false) {
-  background: -webkit-gradient(linear, right center, left center, color-stop(@a, @start), color-stop(@b, @stop));
-  .gradient(-180, @start, @stop, @alpha_start, @alpha_stop, @a, @b);
-}
-.gradient-right(@start:#eee, @stop:#ccc, @alpha_start:1, @alpha_stop:1, @a:0%, @b:100%, @filter:false) when (@filter=ie) {
-  .ie-gradient-right(@start, @stop, @alpha_start, @alpha_stop);
-}
-.gradient-top-left(@start:#eee, @stop:#ccc, @alpha_start:1, @alpha_stop:1, @a:0%, @b:100%, @filter:false) {
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(@a, @start), color-stop(@b, @stop));
-  .gradient(-45, @start, @stop, @alpha_start, @alpha_stop, @a, @b);
-}
-.gradient-top-right(@start:#eee, @stop:#ccc, @alpha_start:1, @alpha_stop:1, @a:0%, @b:100%, @filter:false) {
-  background: -webkit-gradient(linear, right top, left bottom, color-stop(@a, @start), color-stop(@b, @stop));
-  .gradient(-135, @start, @stop, @alpha_start, @alpha_stop, @a, @b);
-}
-.gradient-bottom-right(@start:#eee, @stop:#ccc, @alpha_start:1, @alpha_stop:1, @a:0%, @b:100%, @filter:false) {
-  background: -webkit-gradient(linear, right bottom, left top, color-stop(@a, @start), color-stop(@b, @stop));
-  .gradient(135, @start, @stop, @alpha_start, @alpha_stop, @a, @b);
-}
-.gradient-bottom-left(@start:#eee, @stop:#ccc, @alpha_start:1, @alpha_stop:1, @a:0%, @b:100%, @filter:false) {
-  background: -webkit-gradient(linear, left bottom, right top, color-stop(@a, @start), color-stop(@b, @stop));
-  .gradient(45, @start, @stop, @alpha_start, @alpha_stop, @a, @b);
-}
-// ie gradient filters
-.ie-gradient-top(@start:#eee, @stop:#ccc, @alpha_start:1, @alpha_stop:1, ...) {
-  @rgbahex_start: rgbahex(hsla(hue(@start), saturation(@start), lightness(@start), @alpha_start));
-  @rgbahex_stop: rgbahex(hsla(hue(@stop), saturation(@stop), lightness(@stop), @alpha_stop));  
-  filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@rgbahex_start,@rgbahex_stop));
-}
-.ie-gradient-left(@start:#eee, @stop:#ccc, @alpha_start:1, @alpha_stop:1, ...) {
-  @rgbahex_start: rgbahex(hsla(hue(@start), saturation(@start), lightness(@start), @alpha_start));
-  @rgbahex_stop: rgbahex(hsla(hue(@stop), saturation(@stop), lightness(@stop), @alpha_stop));  
-  filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",@rgbahex_start,@rgbahex_stop));
-}
-.ie-gradient-bottom(@start:#eee, @stop:#ccc, @alpha_start:1, @alpha_stop:1, ...) {
-  @rgbahex_start: rgbahex(hsla(hue(@start), saturation(@start), lightness(@start), @alpha_start));
-  @rgbahex_stop: rgbahex(hsla(hue(@stop), saturation(@stop), lightness(@stop), @alpha_stop));  
-  filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@rgbahex_stop,@rgbahex_start));
-}
-.ie-gradient-right(@start:#eee, @stop:#ccc, @alpha_start:1, @alpha_stop:1, ...) {
-  @rgbahex_start: rgbahex(hsla(hue(@start), saturation(@start), lightness(@start), @alpha_start));
-  @rgbahex_stop: rgbahex(hsla(hue(@stop), saturation(@stop), lightness(@stop), @alpha_stop));  
-  filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",@rgbahex_stop,@rgbahex_start));
+// ===================================================
+// Gradients (with alpha opacity)
+// ===================================================
+
+// linear-gradient iterator (without alpha)
+.linear-gradient(@angle; @color; @position:0% 100%; @alpha:null; @str:""; @webkit:""; @i:1) when (iscolor(extract(@color, @i))) and (@alpha=null) {
+  @_color: extract(@color, @i);
+  @_position: extract(@position, @i);
+  @_str: ~"@{str}, @{_color} @{_position}";
+  @_webkit: ~"@{webkit}, color-stop(@{_position}, @{_color})";
+  .linear-gradient(@angle; @color; @position; @alpha; @_str; @_webkit; (@i + 1));
 }
 
+// linear-gradient iterator (with single alpha)
+.linear-gradient(@angle; @color; @position:0% 100%; @alpha:null; @str:""; @webkit:""; @i:1) when (iscolor(extract(@color, @i))) and (isnumber(@alpha)) {
+  @_c: extract(@color, @i);
+  @_color: hsla(hue(@_c), saturation(@_c), lightness(@_c), @alpha);
+  @_position: extract(@position, @i);
+  @_str: ~"@{str}, @{_color} @{_position}";
+  @_webkit: ~"@{webkit}, color-stop(@{_position}, @{_color})";
+  .linear-gradient(@angle; @color; @position; @alpha; @_str; @_webkit; (@i + 1));
+}
+
+// linear-gradient iterator (with multi alphas)
+.linear-gradient(@angle; @color; @position:0% 100%; @alpha:null; @str:""; @webkit:""; @i:1) when (iscolor(extract(@color, @i))) and (isnumber(extract(@alpha, @i))) {
+  @_a: extract(@alpha, @i);
+  @_c: extract(@color, @i);
+  @_color: hsla(hue(@_c), saturation(@_c), lightness(@_c), @_a);
+  @_position: extract(@position, @i);
+  @_str: ~"@{str}, @{_color} @{_position}";
+  @_webkit: ~"@{webkit}, color-stop(@{_position}, @{_color})";
+  .linear-gradient(@angle; @color; @position; @alpha; @_str; @_webkit; (@i + 1));
+}
+
+// linear-gradient output
+.linear-gradient(@angle; @color; @position:0% 100%; @alpha:null; @str:""; @webkit:""; @i:1) when not (iscolor(extract(@color, @i))) and (@i > 2) {
+  @_angle: (unit(@angle) - floor((unit(@angle) + 179) / 360) * 360);
+  @__angle: (@_angle + 90) - (@_angle * 2);
+  @_str: ~"@{_angle}deg@{str}";
+  @__str: ~"@{__angle}deg@{str}";
+  .webkit-linear-gradient(@_angle; @webkit);
+  background: -webkit-linear-gradient(@_str);
+  background:    -moz-linear-gradient(@_str);
+  background:     -ms-linear-gradient(@_str);
+  background:      -o-linear-gradient(@_str);
+  background:        linear-gradient(@__str);
+}
+
+// linear-gradient support for legacy webkit (Safari 4+, Chrome 2+)
+.webkit-linear-gradient(@angle; @webkit) when (@angle = -90) {
+  background: -webkit-gradient(~"linear, center top, center bottom@{webkit}");
+}
+.webkit-linear-gradient(@angle; @webkit) when (@angle = -135) {
+  background: -webkit-gradient(~"linear, right top, left bottom@{webkit}");
+}
+.webkit-linear-gradient(@angle; @webkit) when (@angle = 180) {
+  background: -webkit-gradient(~"linear, right center, left center@{webkit}");
+}
+.webkit-linear-gradient(@angle; @webkit) when (@angle = 135) {
+  background: -webkit-gradient(~"linear, right bottom, left top@{webkit}");
+}
+.webkit-linear-gradient(@angle; @webkit) when (@angle = 90) {
+  background: -webkit-gradient(~"linear, center bottom, center top@{webkit}");
+}
+.webkit-linear-gradient(@angle; @webkit) when (@angle = 45) {
+  background: -webkit-gradient(~"linear, left bottom, right top@{webkit}");
+}
+.webkit-linear-gradient(@angle; @webkit) when (@angle = 0) {
+  background: -webkit-gradient(~"linear, left center, right center@{webkit}");
+}
+.webkit-linear-gradient(@angle; @webkit) when (@angle = -45) {
+  background: -webkit-gradient(~"linear, left top, right bottom@{webkit}");
+}
+
+// linear gradient shortcuts
+.linear-gradient-top(@color; @position:0% 100%; @alpha:null; @ie:@bless-ie) {
+  .linear-gradient(-90; @color; @position; @alpha);
+}
+.linear-gradient-top-right(@color; @position:0% 100%; @alpha:null; @ie:@bless-ie) {
+  .linear-gradient(-135; @color; @position; @alpha);
+}
+.linear-gradient-right(@color; @position:0% 100%; @alpha:null; @ie:@bless-ie) {
+  .linear-gradient(-180; @color; @position; @alpha);
+}
+.linear-gradient-bottom-right(@color; @position:0% 100%; @alpha:null; @ie:@bless-ie) {
+  .linear-gradient(135; @color; @position; @alpha);
+}
+.linear-gradient-bottom(@color; @position:0% 100%; @alpha:null; @ie:@bless-ie) {
+  .linear-gradient(90; @color; @position; @alpha);
+}
+.linear-gradient-bottom-left(@color; @position:0% 100%; @alpha:null; @ie:@bless-ie) {
+  .linear-gradient(45; @color; @position; @alpha);
+}
+.linear-gradient-left(@color; @position:0% 100%; @alpha:null; @ie:@bless-ie) {
+  .linear-gradient(0; @color; @position; @alpha);
+}
+.linear-gradient-top-left(@color; @position:0% 100%; @alpha:null; @ie:@bless-ie) {
+  .linear-gradient(-45; @color; @position; @alpha);
+}
+
+// ie support for linear gradient shortcuts
+.linear-gradient-top(@color; @position:0% 100%; @alpha:null; @ie:@bless-ie) when (@ie=true) {
+  .ie-linear-gradient-top(@color; @alpha);
+}
+.linear-gradient-right(@color; @position:0% 100%; @alpha:null; @ie:@bless-ie) when (@ie=true) {
+  .ie-linear-gradient-right(@color; @alpha);
+}
+.linear-gradient-bottom(@color; @position:0% 100%; @alpha:null; @ie:@bless-ie) when (@ie=true) {
+  .ie-linear-gradient-bottom(@color; @alpha);
+}
+.linear-gradient-left(@color; @position:0% 100%; @alpha:null; @ie:@bless-ie) when (@ie=true) {
+  .ie-linear-gradient-left(@color; @alpha);
+}
+
+// ie linear gradient filters
+.ie-linear-gradient-vars(@color; @alpha) when (@alpha=null) {
+	@_color_a: extract(@color, 1);
+	@_color_b: extract(@color, 2);
+	@_start: argb(@_color_a);
+	@_stop: argb(@_color_b);
+}
+.ie-linear-gradient-vars(@color; @alpha) when (isnumber(@alpha)) {
+	@_color_a: extract(@color, 1);
+	@_color_b: extract(@color, 2);
+	@_start: argb(hsla(hue(@_color_a), saturation(@_color_a), lightness(@_color_a), @alpha));
+	@_stop: argb(hsla(hue(@_color_b), saturation(@_color_b), lightness(@_color_b), @alpha));
+}
+.ie-linear-gradient-vars(@color; @alpha) when (isnumber(extract(@alpha, 2))) {
+	@_color_a: extract(@color, 1);
+	@_color_b: extract(@color, 2);
+	@_alpha_a: extract(@alpha, 1);
+	@_alpha_b: extract(@alpha, 2);
+	@_start: argb(hsla(hue(@_color_a), saturation(@_color_a), lightness(@_color_a), @_alpha_a));
+	@_stop: argb(hsla(hue(@_color_b), saturation(@_color_b), lightness(@_color_b), @_alpha_b));
+}
+.ie-linear-gradient-top(@color; @alpha:null) {
+	.ie-linear-gradient-vars(@color; @alpha);
+	filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)", @_start, @_stop));
+}
+.ie-linear-gradient-right(@color; @alpha:null) {
+	.ie-linear-gradient-vars(@color; @alpha);
+	filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)", @_stop, @_start));
+}
+.ie-linear-gradient-bottom(@color; @alpha:null) {
+	.ie-linear-gradient-vars(@color; @alpha);
+	filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)", @_stop, @_start));
+}
+.ie-linear-gradient-left(@color; @alpha:null) {
+	.ie-linear-gradient-vars(@color; @alpha);
+	filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)", @_start, @_stop));
+}
