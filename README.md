@@ -1,6 +1,6 @@
 # BLESS
 
-**Collection of usefull LESS mixins**
+**Collection of usefull LESS mixins including CSS properties with vendor prefixes**
 
 BLESS is compatible with [less.js](https://github.com/less/less.js) 1.4.2 or greater. It doesn't rely on any JavaScript evaluation so it's also compatible with most of less.js ports out there. Check out the full list of features and available mixins [from the docs](docs).
 
