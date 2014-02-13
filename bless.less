@@ -113,6 +113,13 @@
       filter: ~"alpha(opacity=@{_opacity})";
 }
 
+// text-size-adjust
+.text-size-adjust(@size) {
+  -webkit-text-size-adjust: @size;
+      -ms-text-size-adjust: @size;
+          text-size-adjust: @size;	
+}
+
 // transform
 .transform(@function) {
   -webkit-transform: @function;

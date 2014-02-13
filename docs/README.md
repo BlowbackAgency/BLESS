@@ -75,6 +75,14 @@ http://www.w3.org/TR/2003/CR-css3-color-20030514/#transparency
 .opacity(0.5, true);
 ```
 
+### `.text-size-adjust(@size)`
+
+http://dev.w3.org/csswg/css-size-adjust/#text-size-adjust
+
+```
+.text-size-adjust(50%);
+```
+
 ### `.transform(@function)`
 
 http://www.w3.org/TR/css3-transforms/#transform-property
