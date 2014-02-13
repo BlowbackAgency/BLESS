@@ -55,6 +55,22 @@ Throw in some BLESS mixins...
 }
 ```
 
+## Using BLESS together with other libraries
+
+Some BLESS mixins may conflict with other LESS libraries out there - like `.opacity()` when used together with [Twitter Bootstrap](https://github.com/twbs/bootstrap). To get around this you can wrap BLESS (or Bootstrap) to it's own namespace:
+
+```css
+#bless {
+	@import "../path/to/bless.less";
+}
+```
+
+Then call the mixins like so:
+
+```css
+#bless.opacity(0.7);
+```
+
 ## Licence
 
 [The MIT License (MIT)](LICENCE.md)
