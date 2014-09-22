@@ -1,0 +1,17 @@
+{
+  "name": "BLESS",
+  "version": "1.1.0",
+  "description": "Collection of usefull LESS mixins including CSS properties with vendor prefixes",
+  "homepage": "https://github.com/BlowbackDesign/BLESS",
+  "main": "bless.less",
+  "keywords": [
+    "web",
+    "css",
+    "less",
+    "front-end"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*"
+  ]
+}
